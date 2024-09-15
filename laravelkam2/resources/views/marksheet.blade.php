@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +10,42 @@
 
 <body>
 
-    <h1>{{ $name }}</h1>
-    <h1>{{ $id }}</h1>
 
- 
+    <h1>{{ $name }}</h1>
+
+    <h2>English : {{ $english }}</h2>
+    <h2>Urdu : {{ $urdu }}</h2>
+    <h2>math : {{ $maths }}</h2>
+
+
+    @php
+        $obtained = $english + $urdu + $maths;
+
+        $per = ($obtained / 300) * 100;
+    @endphp
+
+    <h1>
+       Obtained Marks  {{ $obtained }}
+
+    </h1>
+
+  <h1> Percentage  {{ $per }} %</h1>
+
+    @if ($per <= 100 && $per >= 80)
+        {{ 'grade A1' }}
+    @elseif ($per <= 79 && $per >= 70)
+        {{ 'grade A' }}
+    @elseif ($per <= 69 && $per >= 60)
+        {{ 'grade B' }}
+    @elseif ($per <= 59 && $per >= 50)
+        {{ 'grade C' }}
+    @elseif ($per <= 49 && $per >= 40)
+        {{ 'grade D' }}
+    @else
+        {{ 'Your are Faild ' }}
+    @endif
+
+
 
 
 
